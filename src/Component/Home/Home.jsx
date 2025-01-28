@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import styles from "./home.module.css";
 import { HiChevronDoubleLeft } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
@@ -6,6 +7,8 @@ import { FaSearch } from "react-icons/fa";
 
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
+import Projects from "../Project/Projects";
+import Login from "../SignUp/Login";
 
 const Home = () => {
   const [ischeked, setIsChecked] = useState(false);
@@ -74,6 +77,12 @@ const Home = () => {
               </Link>
             </div>
           )}
+        </div>
+        <div className={styles.rightSideBottomPart}>
+          <Routes>
+            <Route path="/*" element={<Projects />} />
+            <Route path="/auth" element={<Login />} />
+          </Routes>
         </div>
       </div>
     </div>
