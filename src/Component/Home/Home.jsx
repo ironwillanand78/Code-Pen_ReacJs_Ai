@@ -4,19 +4,17 @@ import styles from "./home.module.css";
 import { HiChevronDoubleLeft } from "react-icons/hi";
 import { MdHome } from "react-icons/md";
 import { FaSearch } from "react-icons/fa";
-
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import Projects from "../Project/Projects";
 import Login from "../SignUp/Login";
-
+import { useSelector } from "react-redux";
+import UserProfile from "../UserProfile/UserProfile";
 const Home = () => {
   const [ischeked, setIsChecked] = useState(false);
 
-  // checking for user
-
-  const [user, setUser] = useState("");
-
+  // checking for user using redux store and method called useSelector
+  const user = useSelector((state) => state.user?.user);
   const Handleleftidewidth = () => {
     setIsChecked(!ischeked);
   };
@@ -30,9 +28,7 @@ const Home = () => {
         <div className={styles.anchortag}>
           <HiChevronDoubleLeft
             className={styles.checktag}
-            onClick={() => {
-              Handleleftidewidth();
-            }}
+            onClick={Handleleftidewidth}
           />
         </div>
         <div
@@ -78,6 +74,7 @@ const Home = () => {
             </div>
           )}
         </div>
+
         <div className={styles.rightSideBottomPart}>
           <Routes>
             <Route path="/*" element={<Projects />} />
@@ -85,6 +82,8 @@ const Home = () => {
           </Routes>
         </div>
       </div>
+
+      {user && <UserProfile />}
     </div>
   );
 };

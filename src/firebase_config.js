@@ -1,7 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-import { getAuth, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDVCDA64wFbmfLk_jkgbbICCwuPjAv9VQM",
@@ -21,3 +26,9 @@ export const googleAuthProvider = new GoogleAuthProvider();
 googleAuthProvider.addScope("email");
 
 export const githubAuthProvider = new GithubAuthProvider();
+
+export const signOutUser = async () => {
+  await auth.signOut().then(() => {
+    window.location.reload();
+  });
+};
