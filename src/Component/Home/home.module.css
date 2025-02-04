@@ -10,6 +10,9 @@
   height: 100vh;
   gap: 10px;
 }
+.mainContainer a {
+  text-decoration: none;
+}
 
 /* Left side styles */
 
@@ -71,7 +74,7 @@
 }
 
 .codingText {
-  width: 90%;
+  width: 100%;
   border-radius: 10px;
   border: 0.2px solid #5c5c5c;
   box-shadow: 2px 2px 2px #5c5c5c;

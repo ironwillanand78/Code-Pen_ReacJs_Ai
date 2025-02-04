@@ -7,12 +7,16 @@ import { doc, setDoc } from "firebase/firestore";
 import Animation from "./Component/Animation";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "./Context/Actions/userActions";
+import CodeEditor from "./Component/CodeEditiors/CodeEditor";
 const App = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   // adding the loading animation in time the value is fected from the redux store
 
   const [isLoading, setIsLoading] = useState(true);
+
+  // checking the user auth
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((userCred) => {
       if (userCred) {
@@ -44,6 +48,7 @@ const App = () => {
           <Routes>
             <Route path="/home/*" element={<Home />} />
             <Route path="*" element={<Navigate to={"/home"} />} />
+            <Route path="/CodeEditor" element={<CodeEditor />} />
           </Routes>
         </div>
       )}

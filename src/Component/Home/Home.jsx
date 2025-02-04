@@ -43,7 +43,10 @@ const Home = () => {
           {/* Initial text */}
           <p>Try Our Online Editor</p>
 
-          <div className={styles.codingText}>Start Coding</div>
+          <Link to={"/CodeEditor"}>
+            <div className={styles.codingText}>Start Coding</div>
+          </Link>
+
           {/* Home button  */}
 
           <Link to={"/home/projects"} className={styles.link}>

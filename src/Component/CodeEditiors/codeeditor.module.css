@@ -1,0 +1,50 @@
+/* General Container */
+.container {
+  padding: 10px;
+}
+
+/* Editor Grid */
+.editorGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 1024px) {
+  .editorGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Editor Box */
+.editorBox {
+  background-color: #282c34;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.editorBox h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* CodeMirror Styling */
+.codeEditor {
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .editorBox h2 {
+    font-size: 16px;
+  }
+
+  .codeEditor {
+    font-size: 14px;
+  }
+}

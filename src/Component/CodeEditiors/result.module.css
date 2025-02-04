@@ -1,0 +1,24 @@
+/* Result Container */
+.resultContainer {
+  background-color: #282c34; /* Tailwind: bg-[#282c34] */
+  padding: 1rem; /* Tailwind: p-4 */
+  margin-top: 1rem; /* Tailwind: mt-4 */
+  border-radius: 0.5rem; /* Tailwind: rounded-lg */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Tailwind: shadow */
+}
+
+/* Heading */
+.resultContainer h2 {
+  font-size: 1.125rem; /* Tailwind: text-lg */
+  font-weight: 600; /* Tailwind: font-semibold */
+  margin-bottom: 0.5rem; /* Tailwind: mb-2 */
+  color: white; /* Tailwind: text-white */
+}
+
+/* iFrame */
+.resultFrame {
+  width: 100%; /* Tailwind: w-full */
+  height: 15rem; /* Tailwind: h-60 (60 * 4px) */
+  border: 1px solid #374151; /* Tailwind: border border-gray-700 */
+  border-radius: 0.375rem; /* Tailwind: rounded-md */
+}
