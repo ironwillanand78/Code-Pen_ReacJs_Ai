@@ -5,6 +5,7 @@ import { html } from "@codemirror/lang-html";
 import { css } from "@codemirror/lang-css";
 import Result from "./Result";
 import CodeMirror from "@uiw/react-codemirror";
+import Navbar from "./Navbar";
 const CodeEditor = () => {
   const [html_edit, setHtml_Edit] = useState("");
   const [css_edit, setCss_Edit] = useState("");
@@ -24,6 +25,8 @@ const CodeEditor = () => {
   </html>`;
   return (
     <div>
+      {/* Navbar */}
+      <Navbar />
       {/* Main Content */}
       <div className={styles.container}>
         {/* Code Editors */}
