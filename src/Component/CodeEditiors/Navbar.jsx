@@ -4,12 +4,30 @@ import loginlogo from "../../assets/loginlogo.png";
 import { MdCheck, MdEdit } from "react-icons/md";
 import UserProfile from "../UserProfile/UserProfile";
 import { useSelector } from "react-redux";
-const Navbar = () => {
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase_config";
+const Navbar = ({ htmlCode, cssCode, jsCode, output }) => {
   const user = useSelector((state) => state.user?.user);
   const [title, setTitle] = useState("My Project");
   const [istitle, setIstitle] = useState(false);
   const toggleCheck = () => {
     setIstitle((prev) => !prev);
+  };
+  const saveProgress = async () => {
+    const id = `${Date.now()}`;
+
+    const _code = {
+      id: id,
+      title: title,
+      html: htmlCode,
+      css: cssCode,
+      js: jsCode,
+      output: output,
+      user: user,
+    };
+    await setDoc(doc(db, "projects", id), _code)
+      .then((res) => {})
+      .catch((err) => console.log(err.message));
   };
   return (
     <>
@@ -62,7 +80,9 @@ const Navbar = () => {
           </div>
         </div>
         <div className={styles.rightside}>
-          <button className={styles.saveBtn}>Save</button>
+          <button className={styles.saveBtn} onClick={saveProgress}>
+            Save
+          </button>
           <UserProfile />
         </div>
       </div>

@@ -26,7 +26,13 @@ const CodeEditor = () => {
   return (
     <div>
       {/* Navbar */}
-      <Navbar />
+      <Navbar
+        htmlCode={html_edit}
+        cssCode={css_edit}
+        jsCode={js_edit}
+        output={srcCode}
+      />
+
       {/* Main Content */}
       <div className={styles.container}>
         {/* Code Editors */}
