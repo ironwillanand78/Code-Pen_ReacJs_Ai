@@ -3,11 +3,19 @@ import styles from "./App.module.css";
 import Home from "./Component/Home/Home";
 import { useEffect, useState } from "react";
 import { auth, db } from "./firebase_config";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  onSnapshot,
+  orderBy,
+  query,
+  setDoc,
+} from "firebase/firestore";
 import Animation from "./Component/Animation";
 import { useDispatch } from "react-redux";
 import { SET_USER } from "./Context/Actions/userActions";
 import CodeEditor from "./Component/CodeEditiors/CodeEditor";
+import { SET_PROJECTS } from "./Context/Actions/projectAction";
 const App = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -37,6 +45,22 @@ const App = () => {
     });
     return () => unsubscribe();
   }, []);
+
+  // hadling the data of the projects of the  user and sending it to fireStore..
+
+  useEffect(() => {
+    const projectQuery = query(
+      collection(db, "projects"),
+      orderBy("id", "desc")
+    );
+    const unsubscribe = onSnapshot(projectQuery, (querySnaps) => {
+      const projectList = querySnaps.docs.map((doc) => doc.data());
+      console.log("Fetched Projects:", projectList);
+      dispatch(SET_PROJECTS(projectList));
+    });
+    return unsubscribe;
+  }, []);
+
   return (
     <>
       {isLoading ? (
