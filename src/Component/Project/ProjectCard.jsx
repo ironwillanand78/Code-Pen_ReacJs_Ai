@@ -25,15 +25,12 @@ const ProjectCard = ({ project }) => {
       <h3 className={styles.projectTitle}>{title}</h3>
       <div className={styles.codeContainer}>
         <div className={styles.codeBox}>
-          <h4>HTML</h4>
           <pre>{html}</pre>
         </div>
         <div className={styles.codeBox}>
-          <h4>CSS</h4>
           <pre>{css}</pre>
         </div>
         <div className={styles.codeBox}>
-          <h4>JavaScript</h4>
           <pre>{js}</pre>
         </div>
       </div>
